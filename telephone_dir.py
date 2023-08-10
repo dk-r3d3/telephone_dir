@@ -56,15 +56,23 @@ def find_contact(file):
         else:
             print("Такого контакта нет")
 
+def all_contacts(file):
+    with open(file, "r", encoding='UTF-8') as f:
+            lines = f.readlines()
+            print("Список контактов \n")
+            for i in range(1, len(lines)):
+                print(f"{i}.", lines[i])
+
 action = 0
 while action != 6:
     print(
         """
+        _____Меню_____\n
     1. Добавить контакт
     2. Удалить контакт
     3. Изменить контакт
-    4. Найти контакт 
-    5. открыть сохранить файл целиком
+    4. Найти контакт
+    5. Показать все контакты
     6. выход из меню
     """
     )
@@ -93,3 +101,6 @@ while action != 6:
 
     if action == 4:
         find_contact(file)
+    
+    if action == 5:
+        all_contacts(file)
